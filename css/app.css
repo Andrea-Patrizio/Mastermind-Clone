@@ -1,0 +1,318 @@
+/* 
+Author: Andrea P. Patella
+Front-end Developer
+Cascade Style Sheet
+*/
+
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff url('../img/geometry2.png');
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 80%;
+    margin: 0 auto;
+}
+.col {
+    align-content: space-between;
+    align-self: flex-start;
+    width: 46%;
+    margin: 30px 2%;
+}
+h1, h2, h3 {
+    margin: 0 0 0.6rem 0;
+}
+h1 {
+    font-size: 36px;
+    font-weight: 700;
+}
+h2 {
+    font-size: 30px;
+    font-weight: 300;
+}
+h3 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* Animations */
+
+@keyframes match {
+    0% {transform:scale(1.2,1)}
+    12.5% {transform:scale(1,1.2)}
+    25% {transform:scale(1.2,1)}
+    37.5% {transform:scale(1,1.2)}
+    50% {transform:scale(1.2,1)}
+    62.5% {transform:scale(1.2,1)}
+    75% {transform:scale(1,1.2)}
+    87.5% {transform:scale(1.2,1)}
+    100% {transform:scale(1,1)}
+}
+
+@keyframes nomatch {
+    0% {transform:translateX(-5px)}
+    12.5% {transform:translateX(5px)}
+    25% {transform:translateX(-5px)}
+    37.5% {transform:translateX(5px)}
+    50% {transform:translateX(-5px)}
+    62.5% {transform:translateX(5px)}
+    75% {transform:translateX(-5px)}
+    87.5% {transform:translateX(5px)}
+    100% {transform:translateX(0)}
+}
+
+/* Styles for the deck of cards */
+#AIcolors li,
+#USERcolors span {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+#board {
+    max-width: 400px;
+    background: linear-gradient(0deg, #5b2714 0%, #89472e 100%);
+    padding: 25px;
+    border-radius: 0;
+    box-shadow: -2px -2px 1px rgba(0,0,0,.75) inset, 
+        2px 2px 1px rgba(255,255,255,.5) inset,
+        8px 8px 25px 0 rgba(46, 61, 73, 0.45);
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 2em;
+    position: relative;
+}
+.wood {
+    background: url(../img/wood.jpg) no-repeat top center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.35;
+}
+#board .row {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 100;
+}
+
+#board .hole {
+    display: inline-block;
+    align-content: space-between;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    border-radius: 50%;
+    position: relative;
+}
+#board .hole:after {
+    content:'';
+    display: block;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    width: 20px;
+    height: 20px;
+    background-color: #222;
+    border-radius: 50%;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.75) inset, 
+        -1px -1px 1px rgba(255,255,255,.5) inset;
+}
+#board .hole .color {
+    content:'';    
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: -12px -12px 20px rgba(0,0,0,.6) inset, 
+        5px 5px 8px rgba(255,255,255,.5) inset,
+        -5px -5px 5px rgba(255,255,255,.5) inset,
+        5px 5px 10px rgba(0,0,0,.2);
+    position: relative;
+    z-index: 9;
+}
+#board .hint {
+    width: 65px;
+    border-left: 1px solid #000;
+    display: inline-block;
+    align-content: space-between;
+    margin: 5px 0 5px 15px;
+    padding-left: 10px;
+}
+.cMatch, .cpMatch {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin:5px 0 0 10px;
+    box-shadow: 3px 3px 5px rgba(0,0,0,.35);
+}
+.cMatch {
+    background-color: #000;   
+}
+.cpMatch {
+    background-color: #fff;   
+}
+
+/* BUTTONS ********************************************************************/
+
+#buttons {
+    width: 400px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+}
+#buttons li {
+    display: inline-block;
+    margin: 5px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: -2px -2px 2px rgba(0,0,0,.75) inset,
+        2px 2px 2px rgba(255,255,255,.5) inset;
+}
+#buttons li:hover {
+    cursor: pointer;
+    box-shadow: -2px -2px 2px rgba(0,0,0,.75) inset,
+        2px 2px 2px rgba(255,255,255,.5) inset,
+        3px 3px 6px rgba(0,0,0,.35);
+    transform: translate(-3px,-3px);
+}
+
+/* TOP PANEL ******************************************************************/
+
+#top-panel {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+#top-panel .option {
+    font-size: 18px;
+    margin: 1rem 0;
+}
+
+.option span {
+    font-weight: bold;
+}
+
+/* difficulty */
+
+#difficulty {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+
+#difficulty li {
+    display: inline-block;
+    margin: 0 6px 0 0;
+    padding: 8px 12px;
+    background-color: #89472e;
+    border: 1px solid #89472e;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.restart {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #89472e;
+    color: #fff;
+    border: 1px solid #89472e;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#difficulty li:hover, .restart:hover {
+    background-color: #fff;
+    color: #89472e;
+}
+
+/* End game window */
+
+#modal {
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.5);    
+}
+
+#modal.on {
+    visibility: visible;
+}
+
+.content {
+    width: 50%;
+    background-color: #fff;
+    min-height: 300px;
+    margin: 0 auto;
+    top: 50%;
+    position: relative;
+    transform: translateY(-47%);
+    text-align: center;
+    padding: 30px;
+    box-shadow: 0 0 25px rgba(0,0,0,.35);
+    opacity: 0;
+    transition: all .3s;
+}
+
+#modal.on .content {
+    opacity: 1;
+    transform: translateY(-50%);
+}
+
+#modal .stars {
+    margin: 1em 0;
+}
+
+#modal .stars li {
+    font-size: 30px;
+}
+
+button {
+    background-color: #89472e;
+    color: #fff;
+    padding: .6em 1em;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.satan {
+    width: 70%;
+    height: auto;
+    margin:20px 0 0 0;
+}

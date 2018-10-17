@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+    <head>
+	<meta charset="utf-8">
+	<title>Mastermind</title>
+	<meta name="description" content="">
+	<link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Open+Sans">
+	<link rel="stylesheet" href="css/app.css">
+    </head>
+    <body>
+	<div class="container">
+	    <div class="col">
+		<header>
+		    <h1>Mastermind</h1>
+		    <h2>Guess the sequence</h2>
+		    <p>The computer geneterates a sequence of 4 colors taken from a palette of 3, 4, 5 or 6 colors, depending on the difficulty level. The player has to guess the right sequence. Every time the player chooses 4 colors a visual hint has given. White dot means the player guessed the right color in the right position, while black dot means the playes guessed the right color but in the wrong position.</p>
+		</header>
+		<section id="top-panel">
+		    <!--div class="option AIcolors">
+			<ul>
+			    <li><span id="ai1"></span></li>
+			    <li><span id="ai2"></span></li>
+			    <li><span id="ai3"></span></li>
+			    <li><span id="ai4"></span></li>
+			</ul>
+		    </div-->
+		    <div class="option levels">
+			<h3>Difficulty level</h3>
+			<ul id="difficulty">
+			    <li class="level" data-level="3">Easy</li>
+			    <li class="level" data-level="4">Normal</li>
+			    <li class="level" data-level="5">Hard</li>
+			</ul>
+		    </div>
+		    <div class="option reset">
+			<h3>Restart</h3>
+			<div class="restart">
+			    <i class="fa fa-repeat"></i>
+			</div>
+		    </div>
+		    <div class="option">
+			<h3>Time</h3>
+			<span id="seconds">000</span> seconds 
+		    </div>
+		</section>		
+	    </div>
+	    <div class="col">
+		<section id="board">
+		    <div class="wood"></div>
+		    <div id="USERcolors"></div>
+		</section>
+		<section id="button">
+		    <ul id="buttons"></ul>
+		</section>
+	    </div>
+	</div>
+	<div id="modal">
+	    <div class="content">
+		<h1 id="title"></h1>
+		<p id="rating"></p>
+		<ul class="starsF"></ul>
+		<button type="button" class="restart">Restart</button>
+	    </div>
+	</div>
+
+	<script src="js/app.js"></script>
+    </body>
+</html>
